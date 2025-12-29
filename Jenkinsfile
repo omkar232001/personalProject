@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build Backend') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
@@ -25,15 +25,6 @@ pipeline {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Backend build successful'
-        }
-        failure {
-            echo 'Backend build failed'
         }
     }
 }
