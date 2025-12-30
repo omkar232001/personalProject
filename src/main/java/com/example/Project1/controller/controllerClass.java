@@ -19,7 +19,7 @@ public class controllerClass {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Employees>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
